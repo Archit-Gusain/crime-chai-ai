@@ -1,0 +1,27 @@
+# --- Core NLP models (step 1 & 2) ---
+spacy>=3.7
+transformers>=4.40
+torch>=2.0
+
+# --- PDF ingestion (final pipeline entry point) ---
+pdfplumber>=0.11
+# Optional, only needed for scanned/image PDFs (OCR fallback):
+# pytesseract
+# pdf2image
+# (also requires system packages: tesseract-ocr, poppler-utils)
+
+# --- Entity resolution (step 3) ---
+rapidfuzz>=3.0   # falls back to Python's built-in difflib if not installed
+
+# --- Graph analytics (step 4) ---
+networkx>=3.2    # needs 3.2+ for nx.community.louvain_communities
+
+# --- Anomaly detection (step 5) ---
+scikit-learn>=1.3
+numpy>=1.24
+
+# --- NL query + AI reasoning layer (step 6) ---
+anthropic>=0.40   # optional: falls back to keyword matching / raw facts if not installed or no API key
+
+# --- After installing spaCy, also run: ---
+# python -m spacy download en_core_web_lg
